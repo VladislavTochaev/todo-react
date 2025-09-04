@@ -20,7 +20,8 @@
     "@a1rth/css-normalize": "^1.2.1",
     "clsx": "^2.1.1",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "react-router": "^7.8.2"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.28.0",
