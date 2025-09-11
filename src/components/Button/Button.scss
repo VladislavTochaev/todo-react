@@ -20,4 +20,16 @@
   &:active {
     scale: 1.05;
   }
+
+  &--transparent {
+    color: var(--color-black);
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+
+    &:hover {
+      color: var(--color-gray-4);
+    }
+  }
 }

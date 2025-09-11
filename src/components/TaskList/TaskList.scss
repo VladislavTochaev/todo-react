@@ -1,0 +1,6 @@
+.task-list {
+  --taskListRowGap: 8px;
+
+  display: grid;
+  row-gap: var(--taskListRowGap);
+}

@@ -1,13 +1,15 @@
 import './TaskItem.scss'
 
-const TaskItem = () => {
+const TaskItem = (props) => {
+  const {} = props
+
   return (
-    <li className="todo__item todo-item">
-      <input className="todo-item__checkbox" id="todo-1" type="checkbox" />
-      <label className="todo-item__label" htmlFor="todo-1">
+    <li className="task-item">
+      <input className="task-item__checkbox" id="task-1" type="checkbox" />
+      <label className="task-item__label" htmlFor="task-1">
         Task 1
       </label>
-      <button className="todo-item__delete-button" type="button">
+      <button className="task-item__delete-button" type="button">
         <svg
           width="20"
           height="20"

@@ -1,0 +1,14 @@
+.todo-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 16px;
+  font-weight: 600;
+
+  &__delete-all-button {
+    &:not(.is-visible) {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+}
