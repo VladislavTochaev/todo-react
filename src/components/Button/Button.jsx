@@ -12,6 +12,8 @@ const Button = (props) => {
      * '' (default) | 'transparent'
      * */
     mode = '',
+    isDisabled = false,
+    onClick,
     iconName,
     /*
      * 'before' | 'after'
@@ -31,6 +33,8 @@ const Button = (props) => {
       type={type}
       title={title}
       aria-label={title}
+      disabled={isDisabled}
+      onClick={onClick}
     >
       {iconPosition === 'before' && iconComponent}
       {!isLabelHidden && <span className="button__label">{label}</span>}

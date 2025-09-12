@@ -2,11 +2,17 @@ import './AddTaskForm.scss'
 import Field from '@/components/Field'
 import Button from '@/components/Button'
 
-const AddTaskForm = () => {
+const AddTaskForm = (props) => {
+  const {
+    addTask,
+    title,
+    setTitle,
+  } = props
+
   return (
-    <form className="add-task-form">
-      <Field label="New task title" id="new-task" />
-      <Button className="add-task-form__button" type="submit" label="Add" />
+    <form className="add-task-form" onSubmit={addTask}>
+      <Field label="New task title" id="new-task" title={title} setTitle={setTitle} />
+      <Button className="add-task-form__button" type="submit" label="Add" isDisabled={title.length === 0} />
     </form>
   )
 }

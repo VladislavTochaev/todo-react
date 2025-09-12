@@ -1,15 +1,37 @@
 import './TaskItem.scss'
+import clsx from 'clsx'
 
 const TaskItem = (props) => {
-  const {} = props
+  const {
+    id,
+    label,
+    isChecked,
+    isDisappearing,
+    remove,
+    toggle,
+  } = props
 
   return (
-    <li className="task-item">
-      <input className="task-item__checkbox" id="task-1" type="checkbox" />
-      <label className="task-item__label" htmlFor="task-1">
-        Task 1
+    <li className={clsx('task-item', isDisappearing && 'is-disappearing')}>
+      <input
+        className="task-item__checkbox"
+        id={id}
+        type="checkbox"
+        checked={isChecked}
+        onChange={() => toggle(id)}
+      />
+      <label
+        className="task-item__label"
+        htmlFor={id}
+      >
+        {label}
       </label>
-      <button className="task-item__delete-button" type="button">
+      <button
+        className="task-item__delete-button"
+        aria-label="Delete"
+        title="Delete"
+        onClick={() => remove(id)}
+      >
         <svg
           width="20"
           height="20"

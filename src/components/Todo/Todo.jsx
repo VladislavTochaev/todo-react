@@ -5,7 +5,7 @@ import TodoInfo from '@/components/TodoInfo'
 import TaskList from '@/components/TaskList'
 
 const Todo = () => {
-  return (
+  /*return (
     <div className="todo">
       <h1 className="todo__title">To Do List</h1>
       <AddTaskForm />
@@ -13,7 +13,7 @@ const Todo = () => {
       <TodoInfo />
       <TaskList />
     </div>
-  )
+  )*/
 }
 
 export default Todo

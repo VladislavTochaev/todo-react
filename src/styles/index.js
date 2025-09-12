@@ -4,3 +4,8 @@ import './variables.scss'
 import './utils.scss'
 import './globals.scss'
 import './utils/media.scss'
+
+import './components/button.css'
+import './components/field.css'
+import './components/todo.css'
+import './components/todo-item.css'

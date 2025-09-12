@@ -1,12 +1,14 @@
 import './TaskList.scss'
 import TaskItem from '@/components/TaskItem'
 
-const TaskList = () => {
+const TaskList = (props) => {
+  const { tasks, remove, toggle } = props
+
   return (
     <ul className="task-list">
-      <TaskItem />
-      <TaskItem />
-      <TaskItem />
+      {tasks.map((task) => (
+        <TaskItem {...task} key={task.id} remove={remove} toggle={toggle} />
+      ))}
     </ul>
   )
 }

@@ -2,15 +2,12 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  column-gap: 4px;
   height: var(--input-height);
   padding: 12px;
   color: var(--color-gray-1);
   background-color: var(--color-dark-2);
   border: 1px solid var(--color-dark-2);
   border-radius: var(--border-radius);
-  cursor: pointer;
-  user-select: none;
 
   &:hover {
     color: var(--color-dark-2);
@@ -28,18 +25,6 @@
 
     &:hover {
       color: var(--color-gray-1);
-    }
-  }
-
-  &--transparent {
-    color: var(--color-black);
-    background-color: transparent;
-    padding: 0;
-    border: none;
-    border-radius: 0;
-
-    &:hover {
-      color: var(--color-gray-4);
     }
   }
 }
