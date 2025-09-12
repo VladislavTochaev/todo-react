@@ -8,7 +8,7 @@ const TaskItem = (props) => {
     isChecked,
     isDisappearing,
     remove,
-    toggle,
+    toggle
   } = props
 
   return (
@@ -20,10 +20,7 @@ const TaskItem = (props) => {
         checked={isChecked}
         onChange={() => toggle(id)}
       />
-      <label
-        className="task-item__label"
-        htmlFor={id}
-      >
+      <label className="task-item__label" htmlFor={id}>
         {label}
       </label>
       <button

@@ -12,22 +12,22 @@
 
   &.is-disappearing {
     opacity: 0;
-    translate: 0 -75%;
     transition-duration: calc(var(--transition-duration) * 2);
+    translate: 0 -75%;
     pointer-events: none;
 
     & ~ .todo-item {
-      translate: 0 calc((100% + var(--todoListRowGap)) * -1);
       transition-delay: var(--transition-duration);
       transition-duration: var(--transition-duration);
+      translate: 0 calc((100% + var(--todoListRowGap)) * -1);
       pointer-events: none;
     }
   }
 }
 
 .todo-item__checkbox {
-  flex-shrink: 0;
   appearance: none;
+  flex-shrink: 0;
   position: relative;
   width: 20px;
   height: 20px;
@@ -40,8 +40,8 @@
     border-color: var(--color-dark-2);
 
     & + .todo-item__label {
-      color: var(--color-gray-4);
       text-decoration: line-through;
+      color: var(--color-gray-4);
     }
   }
 
@@ -56,10 +56,11 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    translate: -50% -50%;
     width: 16px;
     height: 16px;
-    background: url('../../assets/icons/icon-check_white.svg') center/contain no-repeat;
+    background: url('../../assets/icons/icon-check_white.svg') center/contain
+      no-repeat;
+    translate: -50% -50%;
   }
 }
 

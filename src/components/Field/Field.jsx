@@ -1,7 +1,9 @@
 import './Field.scss'
+import clsx from 'clsx'
 
 const Field = (props) => {
   const {
+    className,
     label,
     id,
     autoComplete = '',
@@ -11,7 +13,7 @@ const Field = (props) => {
   } = props
 
   return (
-    <div className="field">
+    <div className={clsx(className, 'field')}>
       <label className="field__label" htmlFor={id}>
         {label}
       </label>

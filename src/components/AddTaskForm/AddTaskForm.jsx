@@ -6,13 +6,24 @@ const AddTaskForm = (props) => {
   const {
     addTask,
     title,
-    setTitle,
+    setTitle
   } = props
 
   return (
     <form className="add-task-form" onSubmit={addTask}>
-      <Field label="New task title" id="new-task" title={title} setTitle={setTitle} />
-      <Button className="add-task-form__button" type="submit" label="Add" isDisabled={title.length === 0} />
+      <Field
+        className="add-task-form__field"
+        label="New task title"
+        id="new-task"
+        title={title}
+        setTitle={setTitle}
+      />
+      <Button
+        className="add-task-form__button"
+        type="submit"
+        label="Add"
+        isDisabled={title.length === 0}
+      />
     </form>
   )
 }

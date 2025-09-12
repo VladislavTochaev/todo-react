@@ -7,8 +7,8 @@
 
   &__delete-all-button {
     &:not(.is-visible) {
-      opacity: 0;
       visibility: hidden;
+      opacity: 0;
     }
   }
 }

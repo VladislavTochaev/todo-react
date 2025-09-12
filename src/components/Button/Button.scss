@@ -32,9 +32,9 @@
   }
 
   &--transparent {
+    padding: 0;
     color: var(--color-black);
     background-color: transparent;
-    padding: 0;
     border: none;
     border-radius: 0;
 
