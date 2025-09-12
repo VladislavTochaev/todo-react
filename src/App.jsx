@@ -2,17 +2,21 @@ import TaskList from '@/components/TaskList'
 import AddTaskForm from '@/components/AddTaskForm'
 import TodoInfo from '@/components/TodoInfo'
 import { useTasks } from '@/hooks/useTasks'
+import SearchTaskForm from '@/components/SearchTaskForm'
 
 const App = () => {
   const {
     tasks,
-    setTasks,
+    filteredTasks,
     taskTitle,
     setTaskTitle,
+    searchQuery,
+    setSearchQuery,
     onAddTaskFormSubmit,
     onDeleteTaskButtonClick,
     onToggleCheckbox,
     onDeleteAllTaskButtonClick,
+    onSearchInputChange,
   } = useTasks([
     {
       id: 'task-1',
@@ -36,7 +40,10 @@ const App = () => {
         title={taskTitle}
         setTitle={setTaskTitle}
       />
-      <form className="todo__form">
+
+      <SearchTaskForm searchQuery={searchQuery} onFieldChange={onSearchInputChange} />
+
+      {/*<form className="todo__form" onSubmit={(event) => event.preventDefault()}>
         <div className="todo__field field">
           <label className="field__label" htmlFor="search-task">
             Search task
@@ -47,12 +54,14 @@ const App = () => {
             placeholder=" "
             autoComplete="off"
             type="search"
+            value={searchQuery}
+            onChange={(event) => onSearchInputChange(event)}
           />
         </div>
-      </form>
+      </form>*/}
       <TodoInfo tasks={tasks} deleteAllTasks={onDeleteAllTaskButtonClick} />
       <TaskList
-        tasks={tasks}
+        tasks={filteredTasks ?? tasks}
         remove={onDeleteTaskButtonClick}
         toggle={onToggleCheckbox}
       />

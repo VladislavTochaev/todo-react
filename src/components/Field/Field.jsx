@@ -6,10 +6,10 @@ const Field = (props) => {
     className,
     label,
     id,
-    autoComplete = '',
+    autoComplete,
     type = 'text',
-    title,
-    setTitle,
+    value,
+    setValue,
   } = props
 
   return (
@@ -23,8 +23,8 @@ const Field = (props) => {
         placeholder=" "
         autoComplete={autoComplete}
         type={type}
-        value={title}
-        onChange={(event) => setTitle(event.target.value)}
+        value={value}
+        onChange={(event) => setValue(event.target.value)}
       />
     </div>
   )

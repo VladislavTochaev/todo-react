@@ -1,13 +1,16 @@
-import { useState } from 'react'
+import {useEffect, useState} from 'react'
 
 export const useTasks = (initialState = []) => {
-  const [tasks, setTasks] = useState(initialState)
-  const [taskTitle, setTaskTitle] = useState('')
+  const [ tasks, setTasks ] = useState(initialState)
+  const [ filteredTasks, setFilteredTasks ] = useState(null)
+  const [ taskTitle, setTaskTitle ] = useState('')
+  const [ searchQuery, setSearchQuery ] = useState('')
 
   const onAddTaskFormSubmit = (event) => {
     event.preventDefault()
 
     const titleFormatted = taskTitle.trim()
+
     if (titleFormatted.length > 0) {
       setTasks([
         ...tasks,
@@ -19,6 +22,8 @@ export const useTasks = (initialState = []) => {
       ])
       setTaskTitle('')
     }
+
+    resetFilter()
   }
 
   const onDeleteTaskButtonClick = (taskId) => {
@@ -50,14 +55,40 @@ export const useTasks = (initialState = []) => {
     }
   }
 
+  useEffect(() => {
+    filterTasks()
+  }, [searchQuery, tasks])
+
+  const onSearchInputChange = (event) => {
+    setSearchQuery(event.target.value)
+  }
+
+  const filterTasks = () => {
+    const searchQueryFormatted = searchQuery.toLowerCase()
+
+    setFilteredTasks([...tasks.filter(({label}) => {
+      const titleFormatted = label.toLowerCase()
+      return titleFormatted.includes(searchQueryFormatted)
+    })])
+  }
+
+  const resetFilter = () => {
+    setSearchQuery('')
+  }
+
   return {
     tasks,
     setTasks,
+    filteredTasks,
+    setFilteredTasks,
     taskTitle,
     setTaskTitle,
+    searchQuery,
+    setSearchQuery,
     onAddTaskFormSubmit,
     onDeleteTaskButtonClick,
     onToggleCheckbox,
     onDeleteAllTaskButtonClick,
+    onSearchInputChange,
   }
 }
