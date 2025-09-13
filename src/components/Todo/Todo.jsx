@@ -19,20 +19,7 @@ const Todo = () => {
     onToggleCheckbox,
     onDeleteAllTaskButtonClick,
     onSearchInputChange,
-  } = useTasks([
-    {
-      id: 'task-1',
-      label: 'Task 1',
-      isChecked: true,
-      isDisappearing: false,
-    },
-    {
-      id: 'task-2',
-      label: 'Task 2',
-      isChecked: false,
-      isDisappearing: false,
-    },
-  ])
+  } = useTasks([])
 
   return (
     <div className="todo">

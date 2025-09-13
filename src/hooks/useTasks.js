@@ -4,6 +4,31 @@ export const useTasks = (initialState = []) => {
   const [ tasks, setTasks ] = useState(initialState)
   const [ taskTitle, setTaskTitle ] = useState('')
   const [ searchQuery, setSearchQuery ] = useState('')
+  const localStorageKey = 'tasks'
+
+
+  const getTasksFromLocalStorage = () => {
+    const rawData = localStorage.getItem(localStorageKey)
+
+    if (!rawData) {
+      return []
+    }
+
+    try {
+      const parsedData = JSON.parse(rawData)
+      return Array.isArray(parsedData) ? parsedData : []
+    } catch {
+      console.log('Tasks parse error')
+      return []
+    }
+  }
+
+  const saveTasksToLocalStorage = () => {
+    localStorage.setItem(
+      localStorageKey,
+      JSON.stringify(tasks)
+    )
+  }
 
   const onAddTaskFormSubmit = useCallback((event) => {
     event.preventDefault()
@@ -30,15 +55,15 @@ export const useTasks = (initialState = []) => {
 
   const onDeleteTaskButtonClick = (taskId) => {
     // Добавление класса 'is-disappearing' перед удалением элемента
-    setTasks(
-      tasks.map((task) =>
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
         task.id === taskId ? { ...task, isDisappearing: true } : task
       )
     )
 
     setTimeout(() => {
-      setTasks([...tasks.filter(({ id }) => id !== taskId)])
-    }, 400)
+      setTasks((prevTasks) => prevTasks.filter(({ id }) => id !== taskId))
+    }, 1000)
   }
 
   const onToggleCheckbox = useCallback((taskId) => {
@@ -76,6 +101,14 @@ export const useTasks = (initialState = []) => {
   const resetFilter = () => {
     setSearchQuery('')
   }
+
+  useEffect(() => {
+    setTasks(getTasksFromLocalStorage())
+  }, [])
+  
+  useEffect(() => {
+    saveTasksToLocalStorage()
+  }, [tasks])
 
   return {
     tasks,
