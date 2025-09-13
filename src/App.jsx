@@ -40,25 +40,7 @@ const App = () => {
         title={taskTitle}
         setTitle={setTaskTitle}
       />
-
       <SearchTaskForm searchQuery={searchQuery} onFieldChange={onSearchInputChange} />
-
-      {/*<form className="todo__form" onSubmit={(event) => event.preventDefault()}>
-        <div className="todo__field field">
-          <label className="field__label" htmlFor="search-task">
-            Search task
-          </label>
-          <input
-            className="field__input"
-            id="search-task"
-            placeholder=" "
-            autoComplete="off"
-            type="search"
-            value={searchQuery}
-            onChange={(event) => onSearchInputChange(event)}
-          />
-        </div>
-      </form>*/}
       <TodoInfo tasks={tasks} deleteAllTasks={onDeleteAllTaskButtonClick} />
       <TaskList
         tasks={filteredTasks ?? tasks}

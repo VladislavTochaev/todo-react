@@ -1,12 +1,55 @@
-# React + Vite
+# ToDo React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and modern "ToDo List" application built with React, demonstrating the use of hooks, state management, and a clean component structure.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📦 Description
 
-## Expanding the ESLint configuration
+This minimalistic ToDo app allows you to:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Add new tasks.
+- Mark tasks as completed.
+- Delete individual tasks or all tasks at once.
+- Search tasks by title.
+
+The project showcases the use of React hooks, state handling, and component-based architecture.
+
+---
+
+## 🚀 Installation and Running
+
+### Clone the repository
+
+```bash
+git clone https://github.com/VladislavTochaev/todo-react.git
+cd todo-react
+````
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Start the application
+
+```bash
+npm run dev
+```
+
+The app will be available at [http://localhost:5173](http://localhost:5173).
+
+---
+
+## 🧪 Technologies
+
+* **React** — library for building user interfaces
+* **React Router** — routing and navigation
+* **Vite** — fast development build tool
+* **SCSS** — CSS preprocessor for modular styling
+* **clsx** — utility for conditional className management
+* **PostCSS + postcss-pxtorem** — for converting px to rem and modern CSS features
+* **Stylelint** — CSS/SCSS linter
+* **Prettier** — code formatter
+* **ESLint** — JavaScript/React linter
