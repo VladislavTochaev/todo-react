@@ -1,7 +1,7 @@
-import App from '@/App'
 import { Navigate } from 'react-router'
+import Todo from '@/pages/Todo'
 
 export const routes = [
-  { path: '/', element: <App /> },
+  { path: '/', element: <Todo /> },
   { path: '*', element: <Navigate to="/" replace /> },
 ]
