@@ -1,15 +1,17 @@
-import {useEffect, useState} from 'react'
+import {useCallback, useEffect, useMemo, useState} from 'react'
 
 export const useTasks = (initialState = []) => {
   const [ tasks, setTasks ] = useState(initialState)
-  const [ filteredTasks, setFilteredTasks ] = useState(null)
   const [ taskTitle, setTaskTitle ] = useState('')
   const [ searchQuery, setSearchQuery ] = useState('')
 
-  const onAddTaskFormSubmit = (event) => {
+  const onAddTaskFormSubmit = useCallback((event) => {
     event.preventDefault()
 
     const titleFormatted = taskTitle.trim()
+    if (titleFormatted.length === 0) {
+      return
+    }
 
     if (titleFormatted.length > 0) {
       setTasks([
@@ -24,7 +26,7 @@ export const useTasks = (initialState = []) => {
     }
 
     resetFilter()
-  }
+  }, [taskTitle])
 
   const onDeleteTaskButtonClick = (taskId) => {
     // Добавление класса 'is-disappearing' перед удалением элемента
@@ -39,13 +41,11 @@ export const useTasks = (initialState = []) => {
     }, 400)
   }
 
-  const onToggleCheckbox = (taskId) => {
-    setTasks(
-      tasks.map((task) =>
-        task.id === taskId ? { ...task, isChecked: !task.isChecked } : task
-      )
-    )
-  }
+  const onToggleCheckbox = useCallback((taskId) => {
+    setTasks((prevTasks) => prevTasks.map((task) =>
+      task.id === taskId ? { ...task, isChecked: !task.isChecked } : task
+    ))
+  }, [])
 
   const onDeleteAllTaskButtonClick = () => {
     const isConfirmed = confirm('Are you sure you want to delete all?')
@@ -55,22 +55,23 @@ export const useTasks = (initialState = []) => {
     }
   }
 
-  useEffect(() => {
-    filterTasks()
-  }, [searchQuery, tasks])
-
-  const onSearchInputChange = (value) => {
+  const onSearchInputChange = useCallback((value) => {
     setSearchQuery(value)
-  }
+  }, [])
 
-  const filterTasks = () => {
+  const filteredTasks = useMemo(() => {
+    if (searchQuery.trim().length === 0) {
+      return null
+    }
+
     const searchQueryFormatted = searchQuery.toLowerCase()
 
-    setFilteredTasks([...tasks.filter(({label}) => {
+    return tasks.filter(({label}) => {
       const titleFormatted = label.toLowerCase()
+
       return titleFormatted.includes(searchQueryFormatted)
-    })])
-  }
+    })
+  }, [searchQuery, tasks])
 
   const resetFilter = () => {
     setSearchQuery('')
@@ -80,7 +81,6 @@ export const useTasks = (initialState = []) => {
     tasks,
     setTasks,
     filteredTasks,
-    setFilteredTasks,
     taskTitle,
     setTaskTitle,
     searchQuery,

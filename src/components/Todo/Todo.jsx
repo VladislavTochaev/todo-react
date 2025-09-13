@@ -1,3 +1,4 @@
+import './Todo.scss'
 import TaskList from '@/components/TaskList'
 import AddTaskForm from '@/components/AddTaskForm'
 import TodoInfo from '@/components/TodoInfo'
@@ -5,7 +6,7 @@ import { useTasks } from '@/hooks/useTasks'
 import SearchTaskForm from '@/components/SearchTaskForm'
 import EmptyMessage from '@/components/EmptyMessage'
 
-const App = () => {
+const Todo = () => {
   const {
     tasks,
     filteredTasks,
@@ -53,4 +54,4 @@ const App = () => {
   )
 }
 
-export default App
+export default Todo

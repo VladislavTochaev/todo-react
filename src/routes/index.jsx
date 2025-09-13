@@ -1,7 +1,7 @@
 import { Navigate } from 'react-router'
-import Todo from '@/pages/Todo'
+import MainPage from '@/pages/MainPage'
 
 export const routes = [
-  { path: '/', element: <Todo /> },
+  { path: '/', element: <MainPage /> },
   { path: '*', element: <Navigate to="/" replace /> },
 ]
