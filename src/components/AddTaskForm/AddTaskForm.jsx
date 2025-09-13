@@ -15,8 +15,8 @@ const AddTaskForm = (props) => {
         className="add-task-form__field"
         label="New task title"
         id="new-task"
-        title={title}
-        setTitle={setTitle}
+        value={title}
+        setValue={setTitle}
       />
       <Button
         className="add-task-form__button"

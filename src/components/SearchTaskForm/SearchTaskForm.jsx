@@ -2,7 +2,7 @@ import './SearchTaskForm.scss'
 import Field from '@/components/Field'
 
 const SearchTaskForm = (props) => {
-  const { searchQuery, setSearchQuery } = props
+  const { searchQuery, onFieldChange } = props
 
   return (
     <form className="search-task-form" onSubmit={(event) => event.preventDefault()}>

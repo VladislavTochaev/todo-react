@@ -59,8 +59,8 @@ export const useTasks = (initialState = []) => {
     filterTasks()
   }, [searchQuery, tasks])
 
-  const onSearchInputChange = (event) => {
-    setSearchQuery(event.target.value)
+  const onSearchInputChange = (value) => {
+    setSearchQuery(value)
   }
 
   const filterTasks = () => {
